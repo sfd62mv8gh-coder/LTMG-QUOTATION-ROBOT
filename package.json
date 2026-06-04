@@ -1,0 +1,16 @@
+{
+  "name": "ltmg-quotation-tool",
+  "version": "1.0.0",
+  "description": "A simple internal web quotation calculator for LTMG foreign trade sales.",
+  "main": "src/calculator.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "quotation",
+    "ltmg",
+    "forklift"
+  ],
+  "author": "Xiamen Ltmg Co., Ltd.",
+  "license": "UNLICENSED"
+}
