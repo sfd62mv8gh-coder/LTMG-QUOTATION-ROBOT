@@ -20,6 +20,7 @@ The V1 tool focuses on fast local quotation calculation for products such as for
 - Automatic WhatsApp-style quotation text with validity and warranty in English, Spanish, and Portuguese.
 - Form validation for required fields and invalid numeric values.
 - Image import V1 workflow with JPG/JPEG/PNG/WEBP preview, manual OCR text paste, extracted data review, warnings, and user-confirmed import.
+- Image import is additive: it does not change the existing quotation formulas, option handling, or English/Español/Português quotation outputs.
 
 ## Price Calculation Rules
 
