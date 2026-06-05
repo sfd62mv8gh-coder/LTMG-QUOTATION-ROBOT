@@ -123,10 +123,78 @@
       <button type="button" id="copyQuoteButton" class="primary-button">Copy quotation text</button>
       <p id="copyStatus" class="copy-status" aria-live="polite"></p>
     </section>
+
+    <section class="card image-import-card" aria-labelledby="image-import-title">
+      <div class="section-heading">
+        <h2 id="image-import-title">Image Import / 图片导入</h2>
+      </div>
+      <p class="helper-text">Upload a quotation image for preview, paste recognized text manually, then review extracted data before importing it into the quotation form.</p>
+
+      <label>
+        Quotation image / 报价图片（JPG, JPEG, PNG, WEBP）
+        <input id="quotationImageInput" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp">
+      </label>
+
+      <div id="imagePreviewPanel" class="image-preview-panel" hidden>
+        <img id="quotationImagePreview" alt="Uploaded quotation preview">
+      </div>
+      <p id="imageImportStatus" class="image-import-status" aria-live="polite"></p>
+
+      <label>
+        Manual recognized text / 手动粘贴识别文本
+        <textarea id="recognizedText" rows="8" placeholder="Paste OCR text here. V1 does not require automatic OCR."></textarea>
+      </label>
+
+      <button type="button" id="extractQuotationButton" class="primary-button">Extract quotation data / 识别报价信息</button>
+
+      <section id="extractedDataReview" class="extracted-data-review" aria-labelledby="extracted-data-title" hidden>
+        <h3 id="extracted-data-title">Extracted Data Review / 识别结果确认</h3>
+        <div id="extractionWarnings" class="warning-box" hidden></div>
+        <p class="helper-text">Please check and edit the extracted values. The quotation form will not change until you click Import to quotation form.</p>
+
+        <div class="grid two-columns">
+          <label>
+            Product model
+            <input id="reviewProductModel" type="text" autocomplete="off">
+          </label>
+          <label>
+            Product name
+            <input id="reviewProductName" type="text" autocomplete="off">
+          </label>
+          <label>
+            Base FOB price, USD
+            <input id="reviewBaseFobPrice" type="number" min="0" step="0.01">
+          </label>
+          <label>
+            FOB port
+            <input id="reviewFobPort" type="text" autocomplete="off">
+          </label>
+          <label>
+            Quantity
+            <input id="reviewQuantity" type="number" min="1" step="1">
+          </label>
+        </div>
+
+        <label>
+          Standard configuration
+          <textarea id="reviewStandardConfiguration" rows="4"></textarea>
+        </label>
+
+        <div class="section-heading review-options-heading">
+          <h4>Options list</h4>
+          <button type="button" id="addReviewOptionButton" class="secondary-button">+ Add review option</button>
+        </div>
+        <div id="reviewOptionsList" class="options-list"></div>
+
+        <button type="button" id="importExtractedDataButton" class="primary-button">Import to quotation form / 导入报价表单</button>
+      </section>
+    </section>
+
   </main>
 
   <script src="src/defaultData.js"></script>
   <script src="src/calculator.js"></script>
+  <script src="src/imageImportParser.js"></script>
   <script src="src/app.js"></script>
 </body>
 </html>
