@@ -262,3 +262,56 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+
+.helper-text {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.image-preview-panel {
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  background: #f8fbfd;
+}
+
+.image-preview-panel img {
+  display: block;
+  max-width: 100%;
+  max-height: 360px;
+  margin: 0 auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.image-import-status {
+  min-height: 20px;
+  margin: 8px 0 16px;
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+
+.extracted-data-review {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.warning-box {
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 5px solid #c77700;
+  border-radius: 10px;
+  color: #7a4a00;
+  background: #fff7e6;
+  font-weight: 700;
+}
+
+.review-options-heading {
+  margin-top: 8px;
+}
+
+.review-options-heading h4 {
+  margin: 0;
+}

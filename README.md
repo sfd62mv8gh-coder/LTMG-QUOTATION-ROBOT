@@ -19,6 +19,7 @@ The V1 tool focuses on fast local quotation calculation for products such as for
   - Total FOB amount
 - Automatic WhatsApp-style quotation text with validity and warranty in English, Spanish, and Portuguese.
 - Form validation for required fields and invalid numeric values.
+- Image Import / 图片导入 V1: upload JPG, JPEG, PNG, or WEBP images for preview, paste recognized text manually, extract quotation fields for review, then import only after user confirmation.
 
 ## Price Calculation Rules
 
@@ -45,6 +46,34 @@ Total amount:
 ```text
 total_amount = final_unit_price * quantity
 ```
+
+## Image Import / 图片导入 V1
+
+The image import feature is designed as a safe V1 helper. It does **not** perform mandatory automatic OCR and it does **not** automatically change the quotation calculator after extraction.
+
+How to use it:
+
+1. Open the **Image Import / 图片导入** section.
+2. Upload a quotation image in one of these formats: `JPG`, `JPEG`, `PNG`, or `WEBP`.
+3. Confirm the image preview is displayed.
+4. Paste recognized text manually into **Manual recognized text / 手动粘贴识别文本**. You can use any separate OCR tool if needed, but this project does not require or connect to an OCR API.
+5. Click **Extract quotation data / 识别报价信息**.
+6. Review and edit the **Extracted Data Review / 识别结果确认** fields:
+   - Product model
+   - Product name
+   - Base FOB price
+   - FOB port
+   - Quantity
+   - Standard configuration
+   - Options list
+7. Check warnings carefully:
+   - If `RMB`, `CNY`, or `人民币` is detected, the price is **not** imported as USD automatically.
+   - If more than one price is detected, the page shows `Multiple prices detected` and requires manual confirmation.
+   - If no FOB port is found, the page shows `FOB port is missing`.
+8. Only after checking the review fields, click **Import to quotation form / 导入报价表单**.
+9. Confirm the existing price breakdown and multilingual quotation text before copying or sending any quotation.
+
+The feature preserves the existing price calculation rules and the English / Español / Português quotation text logic. It also keeps internal data protection rules: do not paste real customer private information, internal exchange rates, supplier names, or factory base-cost details into customer-facing quotation text.
 
 
 ## Quote Language Output
@@ -129,6 +158,11 @@ Manual test steps:
 9. Confirm the English WhatsApp quote includes product name, model, selected options, FOB port, unit price, quantity, total price, validity, and warranty.
 10. Change **Quote language / 报价语言** to `Español` and confirm the quote changes to Spanish for Latin American customers, including `capacidad de carga`, `desplazador lateral`, and `FOB Qingdao`.
 11. Change **Quote language / 报价语言** to `Português` and confirm the quote changes to Portuguese.
+12. In **Image Import / 图片导入**, upload a JPG/JPEG/PNG/WEBP image and confirm the preview appears.
+13. Paste sample recognized text with one USD Base FOB price and FOB port, click **Extract quotation data / 识别报价信息**, confirm the extracted review fields appear, then click **Import to quotation form / 导入报价表单** and verify the existing price breakdown updates.
+14. Paste text containing `RMB` or `CNY` and confirm the Base FOB price is not automatically imported as USD.
+15. Paste text containing multiple prices and confirm the `Multiple prices detected` warning appears.
+16. Paste text without an FOB port and confirm the `FOB port is missing` warning appears.
 
 ## How to Modify Default Product Data
 
